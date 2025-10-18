@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basic resets */
+:root {
+  --bg-light: #f5f5f5;
+  --bg-dark: #0b1020;
+  --card-bg-light: rgba(255,255,255,0.75);
+  --card-bg-dark: rgba(15,15,15,0.5);
+}
+
+/* Make main app fill viewport */
+html, body, #__next {
+  height: 100%;
+}
+
+/* DarkVeil canvas styles */
+.darkveil-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Glass cards */
+.card-glass {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.5);
+}
+
+/* Light mode overrides for glass */
+.light .card-glass {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 20px rgba(2,6,23,0.06);
+}
+
+/* small helpers */
+.header-title { font-weight: 700; font-size: 1.25rem; }
+.theme-toggle {
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+}
+
+/* ensure content is above background */
+.app-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure the background sits under everything */
+.fullscreen-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none; /* don't block clicks */
+}
+
+/* layout spacing */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
