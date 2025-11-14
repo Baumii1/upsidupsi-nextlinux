@@ -1,0 +1,100 @@
+.tilted-card-figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile-Hinweis optional */
+.tilted-card-mobile-alert {
+  position: absolute;
+  top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tilted-card-mobile-alert { display: block; }
+  .tilted-card-caption { display: none; }
+}
+
+.tilted-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+
+  /* deutlich transparenter + glassy look */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
+}
+
+.tilted-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  will-change: transform;
+  transform: translateZ(0);
+  opacity: 1; /* mehr Durchscheinen des Backgrounds */
+}
+
+/* Vollflächiges Overlay, tiltet mit der Karte */
+.tilted-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  will-change: transform;
+  transform: translateZ(30px);
+  display: flex;
+  align-items: flex-end;    /* Text unten */
+  justify-content: center;  /* mittig ausgerichtet */
+  padding: 14px;
+  pointer-events: none;     /* blockiert nicht das Hover/Move für Tilt */
+}
+
+/* Label für den Titel – dezent, gut lesbar, aber weiter transparent */
+.tilted-overlay-label {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .2px;
+  line-height: 1.1;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-align: center;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Optionaler Tooltip aus dem Template – bleibt standardmäßig aus */
+.tilted-card-caption {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 4px 10px;
+  font-size: 10px;
+  color: #2d2d2d;
+  opacity: 0;
+  z-index: 3;
+}

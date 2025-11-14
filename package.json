@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.0.0",
+    "minecraft-server-util": "^5.4.4",
+    "next": "14.2.33",
+    "ogl": "0.0.73",
+    "rcon-client": "^4.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "ogl": "^0.0.24"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
